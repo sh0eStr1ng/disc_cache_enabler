@@ -7,10 +7,8 @@
 
 void CreateFileWPatch(DWORD dwFlagsAndAttributes)
 {
-	SafeWriteAddr(0x46F0CB, dwFlagsAndAttributes, 1);
-	SafeWriteAddr(0xAFEB90, dwFlagsAndAttributes, 1);
-	SafeWriteAddr(0xAFEBCD, dwFlagsAndAttributes, 1);
-	SafeWriteAddr(0xE98293, dwFlagsAndAttributes, 1);
+	// Overwrite the relevant addresses with the given flags.
+
 	SafeWriteAddr(0xEE5305, dwFlagsAndAttributes, 1);
 	SafeWriteAddr(0xEE5344, dwFlagsAndAttributes, 1);
 	SafeWriteAddr(0xEE579C, dwFlagsAndAttributes, 1);
@@ -40,7 +38,7 @@ extern "C" __declspec(dllexport) bool NVSEPlugin_Query(const NVSEInterface* nvse
 	return true;
 }
 
-extern "C" __declspec(dllexport) bool NVSEPlugin_Load(const NVSEInterface* nvseInterface)
+extern "C" __declspec(dllexport) bool NVSEPlugin_Load([[maybe_unused]] const NVSEInterface* nvseInterface)
 {
 	puts("Disc Cache Enabler loaded properly! Trying to patch game...");
 	CreateFileWPatch(FILE_FLAG_OVERLAPPED | FILE_FLAG_RANDOM_ACCESS | FILE_FLAG_SEQUENTIAL_SCAN);

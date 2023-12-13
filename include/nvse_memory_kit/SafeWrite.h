@@ -35,15 +35,3 @@ inline bool SafeWriteAddr(uint32_t addr, uint32_t data, size_t size)
 
 	return true;
 }
-
-/*
- * A (possibly) safe way to fill a chunk of memory with NOP. NEVER MIND I'M STUPID NOP IS AN INSTRUCTION
- * Calls SafeWriteAddr with the given parameters.
- */
-
-/*
-inline void SafeFillNop(uint32_t addr, size_t size)
-{
-	for (size_t i = 0; i < size; i++)
-		SafeWriteAddr(addr + i, 0x90, 1);
-}*/

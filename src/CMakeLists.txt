@@ -9,9 +9,11 @@ add_library(disc_cache_enabler SHARED ${PROJECT_SOURCE_FILES})
 
 ### Dependencies
 #
-# - Get the include directory if applicable
-# - Tell CMake to include the directory that was found
+# - Create a new value for the include directory
+# - Include the include directory if it was found
 
 set(INCLUDE_DIRECTORY ${PROJECT_SOURCE_DIR}/include)
 
-target_include_directories(disc_cache_enabler PRIVATE ${INCLUDE_DIRECTORY})
+if (EXISTS ${INCLUDE_DIRECTORY})
+    target_include_directories(disc_cache_enabler PRIVATE ${INCLUDE_DIRECTORY})
+endif ()

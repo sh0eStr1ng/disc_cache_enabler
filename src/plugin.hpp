@@ -18,7 +18,6 @@
 #include <nvse_memory_kit/SafeWrite.h>
 
 /*
- * The main patch for this plugin.
- * I have no fucking clue which address to write to, so I write to both of them.
+ * The patch to enable disc caching.
  */
 void CreateFileWPatch();
