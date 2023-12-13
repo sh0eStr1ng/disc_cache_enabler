@@ -7,14 +7,13 @@
 
 void CreateFileWPatch(DWORD dwFlagsAndAttributes)
 {
-	bool writeSuccess = SafeWriteAddr(0xEE579C, dwFlagsAndAttributes, 1);
-	bool writeSuccess2 = SafeWriteAddr(0xEE5344, dwFlagsAndAttributes, 1);
-
-	if (!writeSuccess && !writeSuccess2)
-	{
-		puts("Failed to patch the game!");
-	}
-	puts("Successfully patched the game!");
+	SafeWriteAddr(0x46F0CB, dwFlagsAndAttributes, 1);
+	SafeWriteAddr(0xAFEB90, dwFlagsAndAttributes, 1);
+	SafeWriteAddr(0xAFEBCD, dwFlagsAndAttributes, 1);
+	SafeWriteAddr(0xE98293, dwFlagsAndAttributes, 1);
+	SafeWriteAddr(0xEE5305, dwFlagsAndAttributes, 1);
+	SafeWriteAddr(0xEE5344, dwFlagsAndAttributes, 1);
+	SafeWriteAddr(0xEE579C, dwFlagsAndAttributes, 1);
 }
 
 extern "C" __declspec(dllexport) bool NVSEPlugin_Query(const NVSEInterface* nvseInterface, PluginInfo* pluginInfo)
