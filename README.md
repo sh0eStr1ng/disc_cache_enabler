@@ -1,5 +1,6 @@
 # disc_cache_enabler
-Forces Fallout New Vegas to use CreateFileW flags optimized for disc caching.
+archived because it literally doesnt work :(
+awesome placebo effect though
 
 # Building
 
